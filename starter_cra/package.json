@@ -1,0 +1,32 @@
+{
+    "name": "starter_cra",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.8.1",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "react-redux": "^8.0.1",
+        "react-router-dom": "^6.3.0"
+    },
+    "devDependencies": {
+        "react-scripts": "5.0.1"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
