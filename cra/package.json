@@ -1,11 +1,10 @@
 {
     "name": "cra",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "private": true,
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test"
+        "build": "react-scripts build"
     },
     "dependencies": {
         "react": "^18.1.0",
