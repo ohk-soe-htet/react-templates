@@ -4,14 +4,15 @@
     "private": true,
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build"
+        "build": "react-scripts build",
+        "test": "react-scripts test"
     },
     "dependencies": {
-        "@reduxjs/toolkit": "^1.8.1",
-        "react": "^18.1.0",
-        "react-dom": "^18.1.0",
-        "react-redux": "^8.0.1",
-        "react-router-dom": "^6.3.0"
+        "@reduxjs/toolkit": "^1.8.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^8.0.4",
+        "react-router-dom": "^6.4.1"
     },
     "devDependencies": {
         "react-scripts": "5.0.1"
