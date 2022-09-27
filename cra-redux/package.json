@@ -14,7 +14,7 @@
         "react-redux": "^8.0.4"
     },
     "devDependencies": {
-        "react-scripts": "5.0.1"
+        "react-scripts": "^5.0.1"
     },
     "browserslist": {
         "production": [
