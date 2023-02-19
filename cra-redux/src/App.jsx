@@ -1,11 +1,11 @@
 import Counter from "./features/counter/Counter";
 
-const App = () => {
+function App() {
     return (
         <>
             <Counter />
         </>
     );
-};
+}
 
 export default App;
