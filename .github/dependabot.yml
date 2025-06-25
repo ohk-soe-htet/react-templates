@@ -6,34 +6,22 @@
 version: 2
 updates:
     - package-ecosystem: "npm"
-      directory: "/basic/cra"
+      # Use a wildcard to match all subdirectories in /basic
+      directory: "/basic/*"
       schedule:
           interval: "daily"
+      # Group all npm updates for each project together
+      groups:
+          npm-dependencies:
+              patterns:
+                  - "*"
     - package-ecosystem: "npm"
-      directory: "/basic/cra-ts"
+      # Use a wildcard to match all subdirectories in /expansions
+      directory: "/expansions/*"
       schedule:
           interval: "daily"
-    - package-ecosystem: "npm"
-      directory: "/basic/cra_lint"
-      schedule:
-          interval: "daily"
-    - package-ecosystem: "npm"
-      directory: "/basic/vite"
-      schedule:
-          interval: "daily"
-    - package-ecosystem: "npm"
-      directory: "/basic/vite-ts"
-      schedule:
-          interval: "daily"
-    - package-ecosystem: "npm"
-      directory: "/expansions/cra_full"
-      schedule:
-          interval: "daily"
-    - package-ecosystem: "npm"
-      directory: "/expansions/cra_redux"
-      schedule:
-          interval: "daily"
-    - package-ecosystem: "npm"
-      directory: "/expansions/cra-ts_redux"
-      schedule:
-          interval: "daily"
+      # Group all npm updates for each project together
+      groups:
+          npm-dependencies:
+              patterns:
+                  - "*"
