@@ -7,7 +7,7 @@
 		"build": "react-scripts build"
 	},
 	"dependencies": {
-		"react": "^18.1.0",
+		"react": "^19.1.0",
 		"react-dom": "^19.1.0"
 	},
 	"devDependencies": {
