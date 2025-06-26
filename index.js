@@ -25,13 +25,13 @@ async function run() {
 
 	if (basicFlagIndex !== -1 && args[basicFlagIndex + 1]) {
 		const templateName = args[basicFlagIndex + 1];
-		chosenTemplate = path.join("basic", templateName);
+		chosenTemplate = path.posix.join("basic", templateName);
 		projectName = args.filter(
 			(_, i) => i !== basicFlagIndex && i !== basicFlagIndex + 1
 		)[0];
 	} else if (expansionsFlagIndex !== -1 && args[expansionsFlagIndex + 1]) {
 		const templateName = args[expansionsFlagIndex + 1];
-		chosenTemplate = path.join("expansions", templateName);
+		chosenTemplate = path.posix.join("expansions", templateName);
 		projectName = args.filter(
 			(_, i) => i !== expansionsFlagIndex && i !== expansionsFlagIndex + 1
 		)[0];
@@ -97,7 +97,7 @@ async function run() {
 				loop: false,
 			},
 		]);
-		chosenTemplate = path.join(templateCategory, selectedTemplate);
+		chosenTemplate = path.posix.join(templateCategory, selectedTemplate);
 	}
 
 	const templateSource = `${GITHUB_REPO}/${chosenTemplate}`;
