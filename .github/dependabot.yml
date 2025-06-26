@@ -6,21 +6,17 @@
 version: 2
 updates:
     - package-ecosystem: "npm"
-      # Use a wildcard to match all subdirectories in /basic
       directory: "/basic/*"
       schedule:
           interval: "daily"
-      # Group all npm updates for each project together
       groups:
           npm-dependencies:
               patterns:
                   - "*"
     - package-ecosystem: "npm"
-      # Use a wildcard to match all subdirectories in /expansions
       directory: "/expansions/*"
       schedule:
           interval: "daily"
-      # Group all npm updates for each project together
       groups:
           npm-dependencies:
               patterns:

@@ -1,18 +1,18 @@
 {
-    "name": "new",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build"
-    },
-    "dependencies": {
-        "@reduxjs/toolkit": "^1.9.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-redux": "^9.2.0"
-    },
-    "devDependencies": {
-        "react-scripts": "^5.0.1"
-    }
+	"name": "new",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build"
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "^2.8.2",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-redux": "^9.2.0"
+	},
+	"devDependencies": {
+		"react-scripts": "^5.0.1"
+	}
 }

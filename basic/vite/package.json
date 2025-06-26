@@ -1,18 +1,18 @@
 {
-    "name": "new",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^19.1.0"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-react": "^4.6.0",
-        "vite": "^4.2.0"
-    }
+	"name": "new",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^4.6.0",
+		"vite": "^7.0.0"
+	}
 }
