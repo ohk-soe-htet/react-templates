@@ -1,0 +1,21 @@
+{
+	"name": "@ohk/react-template",
+	"version": "1.0.0",
+	"description": "CLI to generate a new React project from a template.",
+	"main": "index.js",
+	"type": "module",
+	"private": false,
+	"bin": {
+		"crt": "./index.js"
+	},
+	"scripts": {
+		"start": "node ./index.js"
+	},
+	"dependencies": {
+		"chalk": "^5.4.1",
+		"degit": "^2.8.4",
+		"fs-extra": "^11.3.0",
+		"inquirer": "^12.6.3"
+	},
+	"license": "MIT"
+}

@@ -1,0 +1,5 @@
+basic/
+expansions/
+
+# Ignore github specific files
+.github/

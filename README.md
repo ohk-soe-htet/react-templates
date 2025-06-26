@@ -10,6 +10,65 @@ If you're looking for a lightweight and efficient way to get started with a new 
 
 To use one of these templates, simply clone this repo and copy the template you want to use to a new directory. Then, install the necessary dependencies with your preferred package manager.
 
+## React Templates CLI
+
+This is a command-line tool to quickly scaffold a new React project from a collection of curated templates.
+
+### Features
+
+-   **Interactive Mode:** An easy-to-use interactive prompt to guide you through selecting a template.
+-   **Direct Mode:** Specify a template directly with flags for faster setup.
+-   **Always Up-to-Date:** Templates are fetched directly from the GitHub repository, so you always get the latest version.
+-   **Variety of Templates:** Includes templates for Create React App and Vite, with and without TypeScript, as well as more advanced setups with Redux.
+
+### Usage
+
+To create a new project, run the following command in your terminal:
+
+```bash
+npx @ohk/react-template <project-name>
+```
+
+This will start an interactive prompt where you can choose a category and then a specific template.
+
+#### Direct Usage with Flags
+
+If you already know which template you want to use, you can specify it directly with a flag.
+
+**For basic templates:**
+
+```bash
+npx @ohk/react-template <project-name> --basic <template-name>
+```
+
+**For expansion templates:**
+
+```bash
+npx @ohk/react-template <project-name> --expansions <template-name>
+```
+
+**Example:**
+
+```bash
+npx @ohk/react-template my-app --basic cra
+```
+
+## Available Templates
+
+### Basic
+
+-   `cra`: Create React App with JavaScript
+-   `cra-ts`: Create React App with TypeScript
+-   `cra_lint`: Create React App with JavaScript and ESLint
+-   `vite`: Vite with JavaScript
+-   `vite-ts`: Vite with TypeScript
+
+### Expansions
+
+-   `cra_full`: Create React App with JavaScript, Redux, and React Router
+-   `cra_redux`: Create React App with JavaScript and Redux
+-   `cra-ts_redux`: Create React App with TypeScript and Redux
+
 ## Contributing
 
 If you'd like to contribute to this project, feel free to open a pull request with your changes. Please make sure that your changes are well-documented and that they follow the same code style and conventions as the existing code.
