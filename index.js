@@ -6,12 +6,10 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import degit from "degit";
 
-// TODO: Replace with your GitHub username and repository name
 const GITHUB_REPO = "ohk-soe-htet/react-templates";
 
-// Hardcode the available templates
-const basicTemplates = ["cra", "cra-ts", "cra_lint", "vite", "vite-ts"];
-const expansionTemplates = ["cra_full", "cra_redux", "cra-ts_redux"];
+const tsTemplates = ["vanilla", "redux"];
+const extendedTemplates = ["full", "redux"];
 
 async function run() {
 	console.log(chalk.blue("Creating a new React app..."));
@@ -20,25 +18,39 @@ async function run() {
 	let projectName = null;
 	let chosenTemplate = null;
 
-	const basicFlagIndex = args.findIndex((arg) => arg === "--basic");
-	const expansionsFlagIndex = args.findIndex((arg) => arg === "--expansions");
+	// --- Flag Handling ---
+	const findFlag = (flag) => args.findIndex((arg) => arg === flag);
+	const defaultFlagIndex = findFlag("--default");
+	const tsFlagIndex = findFlag("--ts");
+	const extendedFlagIndex = findFlag("--extended");
 
-	if (basicFlagIndex !== -1 && args[basicFlagIndex + 1]) {
-		const templateName = args[basicFlagIndex + 1];
-		chosenTemplate = path.posix.join("basic", templateName);
-		projectName = args.filter(
-			(_, i) => i !== basicFlagIndex && i !== basicFlagIndex + 1
-		)[0];
-	} else if (expansionsFlagIndex !== -1 && args[expansionsFlagIndex + 1]) {
-		const templateName = args[expansionsFlagIndex + 1];
-		chosenTemplate = path.posix.join("expansions", templateName);
-		projectName = args.filter(
-			(_, i) => i !== expansionsFlagIndex && i !== expansionsFlagIndex + 1
-		)[0];
-	} else if (args.length > 0 && !args[0].startsWith("--")) {
-		projectName = args[0];
+	if (defaultFlagIndex !== -1) {
+		chosenTemplate = "vanilla";
+		projectName = args.filter((arg) => !arg.startsWith("--"))[0];
+	} else {
+		const handleFlag = (flagIndex, category) => {
+			if (flagIndex !== -1 && args[flagIndex + 1]) {
+				const templateName = args[flagIndex + 1];
+				chosenTemplate = path.posix.join(category, templateName);
+				projectName = args.filter(
+					(_, i) => i !== flagIndex && i !== flagIndex + 1
+				)[0];
+				return true;
+			}
+			return false;
+		};
+
+		if (
+			!handleFlag(tsFlagIndex, "ts") &&
+			!handleFlag(extendedFlagIndex, "extended")
+		) {
+			if (args.length > 0 && !args[0].startsWith("--")) {
+				projectName = args[0];
+			}
+		}
 	}
 
+	// --- Project Name and Help ---
 	if (!projectName) {
 		console.error(chalk.red("Please specify the project directory:"));
 		console.log(
@@ -50,20 +62,25 @@ async function run() {
 		console.log("Options:");
 		console.log(
 			`  ${chalk.cyan(
-				"--basic <template>"
-			)}     Specify a template from the 'basic' category.`
+				"--default"
+			)}              Use the default vanilla template.`
 		);
 		console.log(
 			`  ${chalk.cyan(
-				"--expansions <template>"
-			)} Specify a template from the 'expansions' category.`
+				"--ts <template>"
+			)}         Use a TypeScript template.`
+		);
+		console.log(
+			`  ${chalk.cyan(
+				"--extended <template>"
+			)}  Use an extended template with more features.`
 		);
 		console.log();
 		console.log("For example:");
 		console.log(
 			`  ${chalk.cyan("npx @ohk/react-template")} ${chalk.green(
 				"my-app"
-			)} --basic cra`
+			)} --ts vanilla`
 		);
 		process.exit(1);
 	}
@@ -74,30 +91,51 @@ async function run() {
 		process.exit(1);
 	}
 
+	// --- Interactive Mode ---
 	if (!chosenTemplate) {
-		const { templateCategory } = await inquirer.prompt([
+		const { useDefault } = await inquirer.prompt([
 			{
-				type: "list",
-				name: "templateCategory",
-				message: "Which type of template would you like?",
-				choices: ["basic", "expansions"],
-				loop: false,
+				type: "confirm",
+				name: "useDefault",
+				message: "Would you like to use the default vanilla template?",
+				default: true,
 			},
 		]);
 
-		const templateChoices =
-			templateCategory === "basic" ? basicTemplates : expansionTemplates;
+		if (useDefault) {
+			chosenTemplate = "vanilla";
+		} else {
+			const { templateCategory } = await inquirer.prompt([
+				{
+					type: "list",
+					name: "templateCategory",
+					message: "Which type of template would you like?",
+					choices: ["ts", "extended"],
+					loop: false,
+				},
+			]);
 
-		const { selectedTemplate } = await inquirer.prompt([
-			{
-				type: "list",
-				name: "selectedTemplate",
-				message: "Which template would you like to use?",
-				choices: templateChoices,
-				loop: false,
-			},
-		]);
-		chosenTemplate = path.posix.join(templateCategory, selectedTemplate);
+			let templateChoices;
+			if (templateCategory === "ts") {
+				templateChoices = tsTemplates;
+			} else {
+				templateChoices = extendedTemplates;
+			}
+
+			const { selectedTemplate } = await inquirer.prompt([
+				{
+					type: "list",
+					name: "selectedTemplate",
+					message: "Which template would you like to use?",
+					choices: templateChoices,
+					loop: false,
+				},
+			]);
+			chosenTemplate = path.posix.join(
+				templateCategory,
+				selectedTemplate
+			);
+		}
 	}
 
 	const templateSource = `${GITHUB_REPO}/${chosenTemplate}`;

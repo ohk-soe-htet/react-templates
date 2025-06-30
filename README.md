@@ -1,6 +1,6 @@
-# React Templates
+# Minimal React Templates
 
-A collection of curated, lightweight templates to quickly start your next React project. This repository provides a variety of starting points, from a basic Create React App setup to more advanced configurations with TypeScript and Redux.
+A collection of minimal and easy-to-use templates to kickstart your next React project. Get up and running in seconds with a clean, lightweight starting point.
 
 ## Usage
 
@@ -10,39 +10,47 @@ To create a new project, run the following command in your terminal:
 npx @ohk/react-template <project-name>
 ```
 
-This will launch an interactive prompt, allowing you to choose the perfect template for your needs.
+This will launch an interactive prompt, asking if you'd like to use the default vanilla template. If you choose no, you can select from more advanced TypeScript and extended templates.
 
 ### Direct Usage
 
 If you already know which template you want, you can specify it directly with a flag to skip the interactive prompts.
 
-**For basic templates:**
+**For the default vanilla template:**
 
 ```bash
-npx @ohk/react-template <project-name> --basic <template-name>
+npx @ohk/react-template <project-name> --default
 ```
 
-**For expansion templates:**
+**For TypeScript templates:**
 
 ```bash
-npx @ohk/react-template <project-name> --expansions <template-name>
+npx @ohk/react-template <project-name> --ts <template-name>
+```
+
+**For extended templates:**
+
+```bash
+npx @ohk/react-template <project-name> --extended <template-name>
 ```
 
 ## Available Templates
 
-### Basic
+### Vanilla
 
--   `cra`: A clean Create React App with JavaScript.
--   `cra-ts`: Create React App with TypeScript configured.
--   `cra_lint`: Create React App with JavaScript and ESLint.
--   `vite`: A fast Vite setup with JavaScript.
--   `vite-ts`: Vite with TypeScript configured.
+The default template, providing a fast Vite setup with JavaScript.
 
-### Expansions
+-   `vanilla`
 
--   `cra_full`: Create React App with JavaScript, Redux, and React Router.
--   `cra_redux`: Create React App with JavaScript and Redux.
--   `cra-ts_redux`: Create React App with TypeScript and Redux.
+### TypeScript
+
+-   `vanilla`: Vite with TypeScript configured.
+-   `redux`: Create React App with TypeScript and Redux.
+
+### Extended
+
+-   `full`: Create React App with JavaScript, Redux, and React Router.
+-   `redux`: Create React App with JavaScript and Redux.
 
 ## Contributing
 
