@@ -127,14 +127,16 @@ async function run() {
 	console.log(chalk.cyan("  npm install"));
 	console.log("    Installs dependencies.");
 	console.log();
-	console.log(chalk.cyan("  npm start"));
+	console.log(chalk.cyan("  npm run dev"));
 	console.log("    Starts the development server.");
 	console.log();
-	console.log("We suggest that you begin by typing:");
+	console.log("To get started, run the following commands:");
 	console.log();
 	console.log(chalk.cyan("  cd"), projectName);
 	console.log(`  ${chalk.cyan("npm install")}`);
+	console.log(`  ${chalk.cyan("code .")}`);
 	console.log();
+	process.exit(0);
 }
 
 run().catch((error) => {
