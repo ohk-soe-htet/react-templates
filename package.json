@@ -1,7 +1,11 @@
 {
 	"name": "@ohk/react-template",
 	"version": "1.0.1",
-	"description": "CLI to generate a new React project from a template.",
+	"description": "Minimal React project startups.",
+	"keywords": [
+		"react",
+		"template"
+	],
 	"main": "index.js",
 	"type": "module",
 	"private": false,
@@ -17,5 +21,13 @@
 		"fs-extra": "^11.3.0",
 		"inquirer": "^12.6.3"
 	},
-	"license": "MIT"
+	"license": "MIT",
+	"author": {
+		"name": "Ohk Soe Htet",
+		"url": "https://ohksoehtet.dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ohk-soe-htet/react-templates"
+	}
 }
