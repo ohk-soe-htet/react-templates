@@ -6,17 +6,51 @@
 version: 2
 updates:
     - package-ecosystem: "npm"
-      directory: "/basic/*"
+      directory: "/"
       schedule:
-          interval: "daily"
+          interval: "weekly"
       groups:
           npm-dependencies:
               patterns:
                   - "*"
     - package-ecosystem: "npm"
-      directory: "/expansions/*"
+      directory: "/vanilla"
       schedule:
-          interval: "daily"
+          interval: "weekly"
+      groups:
+          npm-dependencies:
+              patterns:
+                  - "*"
+    # ts templates
+    - package-ecosystem: "npm"
+      directory: "/ts/vanilla"
+      schedule:
+          interval: "weekly"
+      groups:
+          npm-dependencies:
+              patterns:
+                  - "*"
+    - package-ecosystem: "npm"
+      directory: "/ts/redux"
+      schedule:
+          interval: "weekly"
+      groups:
+          npm-dependencies:
+              patterns:
+                  - "*"
+    # extended templates
+    - package-ecosystem: "npm"
+      directory: "/extended/full"
+      schedule:
+          interval: "weekly"
+      groups:
+          npm-dependencies:
+              patterns:
+                  - "*"
+    - package-ecosystem: "npm"
+      directory: "/extended/redux"
+      schedule:
+          interval: "weekly"
       groups:
           npm-dependencies:
               patterns:
