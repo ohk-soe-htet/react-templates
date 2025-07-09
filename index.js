@@ -6,7 +6,7 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import degit from "degit";
 
-const GITHUB_REPO = "ohk-soe-htet/react-templates";
+const GITHUB_REPO = "code-with-ohk/react-templates";
 
 const tsTemplates = ["vanilla", "redux"];
 const extendedTemplates = ["full", "redux"];
